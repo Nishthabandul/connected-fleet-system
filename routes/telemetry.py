@@ -9,18 +9,18 @@ from utils.analytics import get_analytics_summary
 
 router = APIRouter(prefix="/telemetry", tags=["Telemetry"])
 
-# Endpoint to receive telemetry data
+
 @router.post("/")
 def receive_telemetry(data: TelemetryData):
     add_telemetry(data)
     return {"message": "Telemetry data received successfully"}
 
-# ✅ Put this higher to avoid conflict
+
 @router.get("/analytics/summary")
 def get_analytics():
     return get_analytics_summary()
 
-# ✅ Put this above /{vin}
+
 @router.get("/{vin}/latest")
 def get_latest_vehicle_telemetry(vin: str):
     data = get_latest_telemetry(vin)
@@ -28,7 +28,7 @@ def get_latest_vehicle_telemetry(vin: str):
         raise HTTPException(status_code=404, detail="No telemetry found for this vehicle")
     return data
 
-# ✅ This comes last to avoid taking over all dynamic routes
+
 @router.get("/{vin}")
 def get_vehicle_telemetry_history(vin: str):
     data = get_telemetry_history(vin)
