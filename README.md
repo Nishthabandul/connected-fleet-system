@@ -23,19 +23,7 @@ Project Structure
 bash
 Copy
 Edit
-connectedfleet2/
-│
-├── main.py                      # App entry point
-│
-├── models/                      # Pydantic models (Vehicle, Telemetry, Alert)
-│
-├── routes/                      # API route definitions
-│
-├── services/                    # Business logic (vehicle_service, telemetry_service, etc.)
-│
-├── storage/                     # Placeholder for in-memory DB (can integrate real DB here)
-│
-└── utils/                       # Analytics utilities and helper functions
+
 How to Run the Project
 Install dependencies
 Make sure you have Python 3.10+ and then run:
